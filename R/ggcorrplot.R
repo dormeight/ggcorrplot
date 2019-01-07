@@ -125,7 +125,7 @@ ggcorrplot <- function(corr, method = c("square", "circle"),
                        lab = FALSE, lab_col = "black", lab_size = 4,
                        p.mat = NULL, sig.level = 0.05, insig = c("pch", "blank"),
                        pch = 4, pch.col = "black", pch.cex = 5,
-                       tl.cex = 12, tl.col = "black", tl.srt = 45, digits = 2) {
+                       tl.cex = 12, tl.col = "black", tl.srt = 45, digits = 2,c.limit=c(-1,1) {
   type <- match.arg(type)
   method <- match.arg(method)
   insig <- match.arg(insig)
@@ -189,7 +189,7 @@ ggcorrplot <- function(corr, method = c("square", "circle"),
   p <-
     p + ggplot2::scale_fill_gradient2(
       low = colors[1], high = colors[3], mid = colors[2],
-      midpoint = 0, limit = c(-1, 1), space = "Lab",
+      midpoint = 0, limit = c.limit, space = "Lab",
       name = legend.title
     )
 
